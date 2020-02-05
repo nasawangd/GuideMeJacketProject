@@ -6,10 +6,29 @@ import time
 GPIO.setmode(GPIO.BOARD)
 
 #These pins will be the ones that will be used for inputs
-GPIO.setup(4, GPIO.IN)
-GPIO.setup(17, GPIO.IN)
-GPIO.setup(27, GPIO.IN)
-GPIO.setup(22, GPIO.IN)
-GPIO.setup(5, GPIO.IN)
+#Pin numbers that are now set to variables.
+GPIO_Front_Trigger = 4
+GPIO_LeftShoulder_Trigger = 17
+GPIO_RightShoulder_Trigger = 27
+GPIO_BackSide_Trigger = 22
+#be sure to change the numbers to pins names instead.
+GPIO.setup(GPIO_Front_Trigger, GPIO.IN)
+GPIO.setup(GPIO_LeftShoulder_Trigger, GPIO.IN)
+GPIO.setup(GPIO_RightShoulder_Trigger, GPIO.IN)
+GPIO.setup(GPIO_BackSide_Trigger, GPIO.IN)
+#GPIO.setup(5, GPIO.IN)
 
-#GPIO inputs are all boolean values 1 or 0. 
+#distance function 
+def distance():
+    #output function for the front trigger will set to true. 
+    #As long as the script is running the trigger will fire. 
+    #Bare minumum code so far to try and see if trigger works.
+    GPIO.output(GPIO_Front_Trigger, True)
+
+
+return distance
+
+#This code will constantly fire, printing out the measurement from the sensor 
+while True:
+    dist = distance()
+    print("The distance is" % dist)
