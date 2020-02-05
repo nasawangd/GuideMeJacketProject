@@ -7,15 +7,15 @@ GPIO.setmode(GPIO.BOARD)
 
 #These pins will be the ones that will be used for inputs
 #Pin numbers that are now set to variables.
-GPIO_Front_Trigger = 4
-GPIO_LeftShoulder_Trigger = 17
-GPIO_RightShoulder_Trigger = 27
-GPIO_BackSide_Trigger = 22
+GPIO_Front_Trigger = 18
+#GPIO_LeftShoulder_Trigger = 17
+#GPIO_RightShoulder_Trigger = 27
+#GPIO_BackSide_Trigger = 22
 #be sure to change the numbers to pins names instead.
-GPIO.setup(GPIO_Front_Trigger, GPIO.IN)
-GPIO.setup(GPIO_LeftShoulder_Trigger, GPIO.IN)
-GPIO.setup(GPIO_RightShoulder_Trigger, GPIO.IN)
-GPIO.setup(GPIO_BackSide_Trigger, GPIO.IN)
+#GPIO.setup(4, GPIO.IN)
+#GPIO.setup(GPIO_LeftShoulder_Trigger, GPIO.IN)
+#GPIO.setup(GPIO_RightShoulder_Trigger, GPIO.IN)
+#GPIO.setup(GPIO_BackSide_Trigger, GPIO.IN)
 #GPIO.setup(5, GPIO.IN)
 
 #distance function 
