@@ -26,7 +26,7 @@ def distance():
     GPIO.output(GPIO_Front_Trigger, True)
 
 
-return distance
+    return distance
 
 #This code will constantly fire, printing out the measurement from the sensor 
 while True:
