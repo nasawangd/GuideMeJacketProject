@@ -67,6 +67,6 @@ while True:
     time.sleep(1)
 
     #used to stop by ctrl-c
-    except KeyboardInterrupt:
-        print("Measurement stopped by User")
-        GPIO.cleanup()
+    #except KeyboardInterrupt:
+     #   print("Measurement stopped by User")
+     #   GPIO.cleanup()
