@@ -52,18 +52,16 @@ def distance():
     #divide by 2 because the signal is going to destination and then bouncing back. 
     distance = (TimeCycle * 34300) / 2
 
+    print(distance)
     return distance
 
 
     #print(GPIO.output(GPIO_LeftShoulder_Trigger, True))
 
-
-    return distance
-
 #This code will constantly fire, printing out the measurement from the sensor
 while True:
-    dist = distance()
-    print("YOOo this time is measured in" % dist)
+    distance()
+    #print("YOOo this time is measured in" % dist)
     time.sleep(1)
 
     #used to stop by ctrl-c
