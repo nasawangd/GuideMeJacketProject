@@ -23,7 +23,7 @@ def distance():
     #output function for the front trigger will set to true.
     #As long as the script is running the trigger will fire.
     #Bare minumum code so far to try and see if trigger works.
-
+    time.sleep(1)
     #GPIO Trigger has been set to high here
     GPIO.output(GPIO_LeftShoulder_Trigger_Output, True)
 
@@ -62,7 +62,7 @@ def distance():
 while True:
     distance()
     #print("YOOo this time is measured in" % dist)
-    time.sleep(1)
+    #time.sleep(1)
 
     #used to stop by ctrl-c
     #except KeyboardInterrupt:
