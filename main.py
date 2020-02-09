@@ -25,12 +25,12 @@ def distance():
     #Bare minumum code so far to try and see if trigger works.
 
     #GPIO Trigger has been set to high here
-    GPIO.output(GPIO_LeftShoulder_Trigger, True)
+    GPIO.output(GPIO_LeftShoulder_Trigger_Output, True)
 
     #Set sensor to sleep in 0.01 seconds. 
     #Reset Sensor back to off.
     time.sleep(0.01)
-    GPIO.output(GPIO_LeftShoulder_Trigger, False)
+    GPIO.output(GPIO_LeftShoulder_Trigger_Output, False)
 
     #Set the time variables for distance
     startTime = time.time()
