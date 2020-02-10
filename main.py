@@ -17,6 +17,7 @@ GPIO.setup(GPIO_LeftShoulder_Trigger_Output, GPIO.OUT)
 #GPIO.setup(GPIO_RightShoulder_Trigger, GPIO.IN)
 #GPIO.setup(GPIO_BackSide_Trigger, GPIO.IN)
 #GPIO.setup(5, GPIO.IN)
+print("Sensor Ready")
 
 #distance function
 def distance():
@@ -52,6 +53,7 @@ def distance():
     #divide by 2 because the signal is going to destination and then bouncing back. 
     distance = (TimeCycle * 34300) / 2
 
+    print("This works")
     print(distance)
     return distance
 
