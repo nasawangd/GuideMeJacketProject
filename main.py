@@ -2,9 +2,10 @@
 import RPi.GPIO as GPIO
 import time
 #set the mode to board numbering since we are using a breadboard. 
-#Board is for pin numbering.
+#Board is for pin numbering
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
-
+#GPIO.setmode(GPIO.BCM)
 #These pins will be the ones that will be used for inputs
 #Pin numbers that are now set to variables.
 GPIO_Front_Trigger = 7
@@ -24,6 +25,7 @@ def distance():
     #output function for the front trigger will set to true.
     #As long as the script is running the trigger will fire.
     #Bare minumum code so far to try and see if trigger works.
+    print("test")
     time.sleep(1)
     #GPIO Trigger has been set to high here
     GPIO.output(GPIO_LeftShoulder_Trigger_Output, True)
@@ -34,8 +36,8 @@ def distance():
     GPIO.output(GPIO_LeftShoulder_Trigger_Output, False)
 
     #Set the time variables for distance
-    startTime = time.time()
-    endTime= time.time()
+    #startTime = time.time()
+    #endTime= time.time()
 
     #need to save the start and end time. That will count as one cycle
     #Save the initial start time
@@ -46,7 +48,9 @@ def distance():
     while GPIO.input(GPIO_LeftShoulder_Trigger_Output) == 1:
         endTime = time.time()
     
-    #To figure out the time it takes for the signal to make one full cycle we can 
+    #To figure out the time it takes for the signal to make one full cycle we can
+    #print(startTime)
+    #print(endTime) 
     TimeCycle = endTime - startTime
 
     #to calculate distance its (Time difference) * Sonic Speed (34300 cm\s / 2)
@@ -57,11 +61,11 @@ def distance():
     print(distanceOfSignal)
     return distanceOfSignal
 
-
+    GPIO.cleanup()
     #print(GPIO.output(GPIO_LeftShoulder_Trigger, True))
 
 #This code will constantly fire, printing out the measurement from the sensor
-while True:
+while 1 == 1:
     distance()
     #print("YOOo this time is measured in" % dist)
     #time.sleep(1)
