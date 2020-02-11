@@ -55,7 +55,7 @@ def distance():
 
     #to calculate distance its (Time difference) * Sonic Speed (34300 cm\s / 2)
     #divide by 2 because the signal is going to destination and then bouncing back. 
-    distanceOfSignal = (TimeCycle * 34300) / 2
+    distanceOfSignal = (TimeCycle * 17150)
 
     print("This works")
     print(distanceOfSignal)
