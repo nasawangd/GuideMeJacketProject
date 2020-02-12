@@ -1,6 +1,7 @@
 #Importing the necessary GPIO tools module.
 import RPi.GPIO as GPIO
 import time
+#print(time)
 #set the mode to board numbering since we are using a breadboard. 
 #Board is for pin numbering
 GPIO.setwarnings(False)
@@ -13,8 +14,8 @@ GPIO_LeftShoulder_Trigger_Output = 11
 #GPIO_RightShoulder_Trigger = 27
 #GPIO_BackSide_Trigger = 22
 #be sure to change the numbers to pins names instead.
-GPIO.setup(GPIO_Front_Trigger, GPIO.IN)
-GPIO.setup(GPIO_LeftShoulder_Trigger_Output, GPIO.OUT)
+GPIO.setup(GPIO_Front_Trigger, GPIO.OUT)
+GPIO.setup(GPIO_LeftShoulder_Trigger_Output, GPIO.IN)
 #GPIO.setup(GPIO_RightShoulder_Trigger, GPIO.IN)
 #GPIO.setup(GPIO_BackSide_Trigger, GPIO.IN)
 #GPIO.setup(5, GPIO.IN)
@@ -26,18 +27,18 @@ def distance():
     #As long as the script is running the trigger will fire.
     #Bare minumum code so far to try and see if trigger works.
     print("test")
-    time.sleep(1)
+    time.sleep(0.000001)
     #GPIO Trigger has been set to high here
-    GPIO.output(GPIO_LeftShoulder_Trigger_Output, True)
+    GPIO.output(GPIO_Front_Trigger, True)
 
     #Set sensor to sleep in 0.01 seconds. 
     #Reset Sensor back to off.
     time.sleep(0.01)
-    GPIO.output(GPIO_LeftShoulder_Trigger_Output, False)
+    GPIO.output(GPIO_Front_Trigger, False)
 
     #Set the time variables for distance
-    #startTime = time.time()
-    #endTime= time.time()
+    startTime = time.time()
+    endTime= time.time()
 
     #need to save the start and end time. That will count as one cycle
     #Save the initial start time
@@ -55,18 +56,20 @@ def distance():
 
     #to calculate distance its (Time difference) * Sonic Speed (34300 cm\s / 2)
     #divide by 2 because the signal is going to destination and then bouncing back. 
-    distanceOfSignal = (TimeCycle * 34300)/2
+    distance = (TimeCycle * 34300)/2
 
     print("This works")
-    print(distanceOfSignal)
-    return distanceOfSignal
-
+    #print(distance)
+    return distance
+  
     GPIO.cleanup()
     #print(GPIO.output(GPIO_LeftShoulder_Trigger, True))
 
 #This code will constantly fire, printing out the measurement from the sensor
 while 1 == 1:
-    distance()
+    dist = distance()
+    print(dist)
+    time.sleep(1)
     #print("YOOo this time is measured in" % dist)
     #time.sleep(1)
 
