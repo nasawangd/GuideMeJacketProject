@@ -19,14 +19,14 @@ GPIO.setup(GPIO_LeftShoulder_Trigger_Output, GPIO.IN)
 #GPIO.setup(GPIO_RightShoulder_Trigger, GPIO.IN)
 #GPIO.setup(GPIO_BackSide_Trigger, GPIO.IN)
 #GPIO.setup(5, GPIO.IN)
-print("Sensor Ready")
+#print("Sensor Ready")
 
 #distance function
 def distance():
     #output function for the front trigger will set to true.
     #As long as the script is running the trigger will fire.
     #Bare minumum code so far to try and see if trigger works.
-    print("test")
+    #print("test")
     time.sleep(0.000001)
     #GPIO Trigger has been set to high here
     GPIO.output(GPIO_Front_Trigger, True)
@@ -58,7 +58,7 @@ def distance():
     #divide by 2 because the signal is going to destination and then bouncing back. 
     distance = (TimeCycle * 34300)/2
 
-    print("This works")
+    #print("This works")
     #print(distance)
     return distance
   
@@ -68,7 +68,7 @@ def distance():
 #This code will constantly fire, printing out the measurement from the sensor
 while 1 == 1:
     dist = distance()
-    print(dist)
+    print("Your distance in cm is" + " " + str(dist))
     time.sleep(1)
     #print("YOOo this time is measured in" % dist)
     #time.sleep(1)
