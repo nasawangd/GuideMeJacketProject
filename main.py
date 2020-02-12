@@ -1,6 +1,7 @@
 #Importing the necessary GPIO tools module.
 import RPi.GPIO as GPIO
 import time
+import vibrate
 #print(time)
 #set the mode to board numbering since we are using a breadboard. 
 #Board is for pin numbering
@@ -70,9 +71,13 @@ while 1 == 1:
     dist = distance()
     print("Your distance in cm is" + " " + str(dist))
     time.sleep(1)
+    if dist > 3:
+       vibrate.steadyPulse()
+	
     #print("YOOo this time is measured in" % dist)
     #time.sleep(1)
-
+#    if KeyboardInterrupt:
+#	print("User stopped measurement, thanks for using")
     #used to stop by ctrl-c
     #except KeyboardInterrupt:
      #   print("Measurement stopped by User")
