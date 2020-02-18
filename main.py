@@ -20,7 +20,7 @@ GPIO.setup(GPIO_LeftShoulder_Trigger_Output, GPIO.IN)
 #GPIO.setup(GPIO_RightShoulder_Trigger, GPIO.IN)
 #GPIO.setup(GPIO_BackSide_Trigger, GPIO.IN)
 #GPIO.setup(5, GPIO.IN)
-#print("Sensor Ready")
+print("Sensor Ready")
 
 #distance function
 def distance():
@@ -70,11 +70,26 @@ def distance():
 while 1 == 1:
     dist = distance()
     print("Your distance in cm is" + " " + str(dist))
-    time.sleep(1)
-    if dist > 3:
+    time.sleep(0.5)
+    if dist >= 71 and dist <= 200:
+       vibrate.minPulse()
+       print("Your distance in cm is" + " " + str(dist))
+
+    elif dist >= 30 and dist <= 70:
+       vibrate.quarterPulse()
+       print("Your distance in cm is" + " " + str(dist))
+
+    elif dist <= 29:
        vibrate.steadyPulse()
-	
-    #print("YOOo this time is measured in" % dist)
+       print("Your distance in cm is" + " " + str(dist))
+
+    elif dist > 200:
+       print("out of bounds")
+       vibrate.stopPulsing()
+
+#    else:
+#       vibrate.stopPulsing()
+   #print("YOOo this time is measured in" % dist)
     #time.sleep(1)
 #    if KeyboardInterrupt:
 #	print("User stopped measurement, thanks for using")
