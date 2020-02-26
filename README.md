@@ -1,5 +1,4 @@
-# GuideMe Project
-(Formerly known as the GuideMeJacket Project)
+# GuideMe Project (Formerly known as the GuideMeJacket Project)
 University of Washington Capstone Project
 
 The GuideMe system is a Raspberry Pi that utilizes ultrasonic sensors that work in tandem with vibration motors that,
